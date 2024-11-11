@@ -1,0 +1,61 @@
+﻿@model Sipecom.FactElec.Pymes.Servicios.Api.Identidad.Models.Account.LoginViewModel
+
+<div class="fondoInicioSesion w-100 h-100 px-0">
+
+    <partial name="_ValidationSummary" />
+
+    <div class="row">
+
+        @if (Model.EnableLocalLogin)
+        {
+            <div class="col-10 formCenter mt-3">
+                <div class="card-body">
+                    <form asp-route="Login">
+                        <input type="hidden" asp-for="ReturnUrl" />
+                        <div class="invoicecCenter">
+                            <img src="~/imagenes/invoicec-pymes.png" width="100%" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Usuario" asp-for="Username" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Contraseña" asp-for="Password" autocomplete="off">
+                        </div>
+
+                        <div class="form-group text-right">
+                            <a asp-action="RecuperarPassword" asp-route-url="@Model.ReturnUrl" class="color-primary-pymes txt-bold">¿Olvidó su contraseña? </a>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary-pymes btn-block" name="button" value="login" onclick="validarConexion()">Iniciar sesión</button>
+                            <span id="conexionStatus"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+
+        @if (!Model.EnableLocalLogin)
+        {
+            <div class="alert alert-warning">
+                <strong>Inicio sesión invalido</strong>
+            </div>
+        }
+    </div>
+
+    <script>
+        function validarConexion() {
+            var isConnected = navigator.onLine;
+            var statusElement = document.getElementById("conexionStatus");
+
+            if (!isConnected) {
+                statusElement.innerText = "Sin conexión a Internet";
+                return false;
+            }
+
+            statusElement.innerText = ""; // Limpiar el mensaje de estado si hay conexión
+            return true;
+        }
+    </script>
+
+</div>

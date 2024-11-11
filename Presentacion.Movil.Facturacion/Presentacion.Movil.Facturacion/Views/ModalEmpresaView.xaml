@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Controls"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion" 
+             xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.ModalEmpresaView"
+             vmb:ViewModelLocator.AutoWireViewModel="true"
+             BackgroundColor="Transparent">
+    
+    <ContentPage.Content>
+        <Grid Margin="0,200,0,0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0" BackgroundColor="#0F75BC"  CornerRadius="8" BorderColor="#0F75BC">
+                <Label Margin="125,0,0,0" Text="Empresa" TextColor="White" FontSize="Medium" FontAttributes="Bold" />
+            </Frame>
+            <Button Text="Cancelar" 
+                   BackgroundColor="#0F75BC" HorizontalOptions="Start" 
+                    TextColor="#E0E0E0" TextTransform="None" CornerRadius="8"
+                    Command="{Binding CerrarModalComannd}"/>
+
+            <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="5">
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Frame Padding="0,0,0,0" CornerRadius="15" BorderColor="#333B8E">
+                            <SearchBar x:Name="SchEmpresa">
+                                <SearchBar.Behaviors>
+                                    <toolkit:EventToCommandBehavior EventName="TextChanged"
+                                                                    Command="{Binding BuscarCommand}" 
+                                                                    CommandParameter="{Binding Text, Source={x:Reference SchEmpresa}}"/>
+                                </SearchBar.Behaviors>
+                            </SearchBar>
+                        </Frame>
+
+                        <ListView Margin="0,10,0,0" Grid.Row="1" ItemsSource="{Binding Establecimiento, Mode=TwoWay}"
+                                  SelectedItem="{Binding EstablecimientoSeleccionado, Mode=TwoWay}"
+                            HasUnevenRows="True"
+                            x:Name="list1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <custom:CustomViewCell SelectedItemBackgroundColor="#EAF1F5">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <StackLayout Grid.Row="0">
+                                                <Label Margin="0,0,0,10"
+                                                       Text="{Binding RazonSocial}" 
+                                                       FontSize="Small" 
+                                                       TextColor="Black"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </custom:CustomViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

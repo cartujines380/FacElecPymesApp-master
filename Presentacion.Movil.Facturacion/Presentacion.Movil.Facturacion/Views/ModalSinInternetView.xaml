@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.ModalSinInternetView"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             vmb:ViewModelLocator.AutoWireViewModel="true">
+    
+    <ContentPage.Content>
+        <ContentView x:Name="popupSinInternet" BackgroundColor="Transparent" Padding="10,0" IsVisible="true" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Frame HeightRequest="250" WidthRequest="200" BackgroundColor="White" CornerRadius="8" Padding="10,0,10,10" HasShadow="True">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackLayout>
+                            <Image Source="NO_WIFI.png" HeightRequest="150" WidthRequest="150" />
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="Oops!" TextColor="#0F75BC" FontSize="Large" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2"  HorizontalOptions="Center" VerticalOptions="Center" >
+                            <Label Text="No hay conexión" TextColor="#333B8E" FontSize="Subtitle" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="3"  HorizontalOptions="Center" VerticalOptions="Center" Padding="0,8,0,5">
+                            <Button Text="Volver a Intentar" 
+                                CornerRadius="10"
+                                BackgroundColor="#333B8E" 
+                                HorizontalOptions="CenterAndExpand" 
+                                TextTransform="None"
+                                FontSize="Small"
+                                HeightRequest="40" WidthRequest="180" FontAttributes="Bold"
+                                Command="{Binding CerrarModalComannd}"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                </Frame>
+            </StackLayout>
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>

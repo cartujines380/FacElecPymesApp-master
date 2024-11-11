@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Ctrt13TextoDos" xml:space="preserve">
+    <value>El cliente podrá realizar cambios del plan elegido, ya sea este de mayor o menor valor, en el tiempo de duración del contrato (12 meses) De requerirlo, el cambio debe ser notificado con</value>
+  </data>
+  <data name="Ctrt15TextoDos" xml:space="preserve">
+    <value>Para modificar los términos y condiciones del presente contrato, sólo se realizará si ambas partes llegaran a un acuerdo, acerca de la modificación, cumpliendo de esta forma el principio de equidad. Ambas partes, leído el presente contrato lo firman y ratifican su contenido, comprometiéndose a su cumplimiento y para que así conste, se firman dos ejemplares de un mismo tenor e igual valor y efectos legales.</value>
+  </data>
+  <data name="Ctrt1TextoDos" xml:space="preserve">
+    <value>con domicilio legal en {0}, en la ciudad de {1} Provincia del {2}, República del Ecuador. En la ciudad de Guayaquil – Ecuador y que en lo adelante se denominará como</value>
+  </data>
+  <data name="Ctrt1TextoOcho" xml:space="preserve">
+    <value>representado en este acto por, {0}</value>
+  </data>
+  <data name="Ctrt1TextoSeis" xml:space="preserve">
+    <value>{0}, con domicilio legal en: {1} en la Ciudad de {2} cuyos números telefónicos son: {3} y correo electrónico es: {4}; Que en lo sucesivo se denominará</value>
+  </data>
+  <data name="Ctrt2TextoCuatro" xml:space="preserve">
+    <value>un Servicio de Facturación Electrónica en línea denominado INVOICEC, usando como plataforma la dirección electrónica:</value>
+  </data>
+  <data name="Ctrt2TextoSeis" xml:space="preserve">
+    <value>emitir los {0} documentos digitales según la nueva reforma tributaria ecuatoriana que son:</value>
+  </data>
+  <data name="Ctrt4TextoDos" xml:space="preserve">
+    <value>podrá usar los recursos de INVOICEC y validar sus {0} documentos digitales con el SRI gracias a la comunicación entre el servidor</value>
+  </data>
+  <data name="Ctrt5TextoSiete" xml:space="preserve">
+    <value>y se mantendrá en dicho servidor por un periodo de 1 años, además cada año fiscal se le facilitará los documentos digitales en formato XML. </value>
+  </data>
+  <data name="Ctrt6TextoDos" xml:space="preserve">
+    <value>no se hace responsable por fallos provenientes del servidor del SRI, en este caso el SRI ha creado un plan de contingencia que permitirá validar los documentos. </value>
+  </data>
+  <data name="Ctrt8TextoDos" xml:space="preserve">
+    <value>hará su mayor esfuerzo para la reserva, protección y confidencialidad de aquellos datos suministrados en el sistema ubicado en la dirección electrónica</value>
+  </data>
+  <data name="Ctrt9TextCuatro" xml:space="preserve">
+    <value>varios planes a su elección en base al precio y la cantidad de documentos electrónicos a procesar de forma anual. A continuación, se detalla el plan contratado entre </value>
+  </data>
+  <data name="CtrtCantidadDocumento" xml:space="preserve">
+    <value>emitir los {0} documentos digitales según la nueva reforma tributaria ecuatoriana que son:</value>
+  </data>
+  <data name="CtrtNombreEmpresa" xml:space="preserve">
+    <value>De una parte: {0}</value>
+  </data>
+  <data name="CtrtRucEmpresa" xml:space="preserve">
+    <value>RUC {0}</value>
+  </data>
+  <data name="CtrtTitulo" xml:space="preserve">
+    <value>CONTRATO DE PRESENTACIÓN DE SERVICIOS DE FACTURACIÓN ELECTRÓNICA INVOICEC ENTRE SIPECOM Y EL SUBSCRITOR</value>
+  </data>
+</root>

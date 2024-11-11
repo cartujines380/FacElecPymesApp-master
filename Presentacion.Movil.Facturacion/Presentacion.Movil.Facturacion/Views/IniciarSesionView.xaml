@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.IniciarSesionView"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             xmlns:cnv="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Converters;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             xmlns:bhv="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Behaviors;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             xmlns:ctl="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Controls;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion" 
+             xmlns:globales="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.Globales" 
+             vmb:ViewModelLocator.AutoWireViewModel="true"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <cnv:WebNavigatingEventArgsConverter x:Key="WebNavigatingEventArgsConverter" />
+            <cnv:WebNavigatedEventArgsConverter x:Key="WebNavigatedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid>
+
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    x:Name="btnIniciarSesion"
+                    Text="Iniciar sesión"
+                    Command="{Binding IniciarSesionCommand}"
+                    IsVisible="{Binding EsBtnLogin, Mode=TwoWay}"/>
+                <Grid 
+                    Grid.Column="1"
+                    BackgroundColor="Gray"
+                    IsVisible="False"/>
+                <AbsoluteLayout
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Grid.RowSpan="7"
+                    IsVisible="{Binding EsLogin, Mode=TwoWay}">
+                    <ctl:CustomWebView    
+                        Source="{Binding LoginUrl, Mode=TwoWay}"
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                        AbsoluteLayout.LayoutFlags="All">
+                        <WebView.Behaviors>
+                            <bhv:EventToCommandBehavior 
+                                EventName="Navigating"
+                                EventArgsConverter="{StaticResource WebNavigatingEventArgsConverter}"
+                                Command="{Binding NavegarCommand}"
+                                />
+                        </WebView.Behaviors>
+                        
+                    </ctl:CustomWebView>
+                </AbsoluteLayout>
+            </Grid>
+
+            <globales:ErrorInternet x:Name="SinConexion" IsVisible="False" />
+
+            <StackLayout IsVisible="{Binding IsVisible, Mode=TwoWay}" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                     AbsoluteLayout.LayoutFlags="PositionProportional"
+                     BackgroundColor="White" 
+                     Opacity="1">
+                <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="CenterAndExpand"
+                               Color="#0F75BC"
+                               HeightRequest="80"
+                               WidthRequest="80"/>
+            </StackLayout>
+
+            <!--<globales:ErrorInternet IsVisible="{Binding Sinconexion, Mode=TwoWay}"/>-->
+        </Grid>
+       
+    </ContentPage.Content>
+</ContentPage>

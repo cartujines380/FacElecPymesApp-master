@@ -1,0 +1,87 @@
+.body-container {
+  margin-top: 60px;
+  padding-bottom: 40px; }
+
+.welcome-page li {
+  list-style: none;
+  padding: 4px; }
+
+.logged-out-page iframe {
+  display: none;
+  width: 0;
+  height: 0; }
+
+.grants-page .card {
+  margin-top: 20px;
+  border-bottom: 1px solid lightgray; }
+  .grants-page .card .card-title {
+    font-size: 120%;
+    font-weight: bold; }
+    .grants-page .card .card-title img {
+      width: 100px;
+      height: 100px; }
+  .grants-page .card label {
+    font-weight: bold; }
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.fondoInicioSesion {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url(../imagenes/FondoIS-960x1600.jpg);
+}
+
+.fondoRecupPassword {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url(../imagenes/FondoRC-960x1600.jpg);
+}
+
+.fondoError {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url(../imagenes/ErrorSipe.jpg);
+}
+
+.imagenPie {
+    background-position: bottom right;
+}
+
+.formCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+}
+
+.invoicecCenter {
+    text-align: center;
+    background-position: center center;
+    background-size: cover;
+}
+
+.btn-primary-pymes {
+    background-color: #333B8E;
+    color: white;
+    border-radius: 12px;
+}
+
+.color-primary-pymes {
+    color: #333B8E;
+}
+
+.txt-bold {
+    font-weight: bold;
+}

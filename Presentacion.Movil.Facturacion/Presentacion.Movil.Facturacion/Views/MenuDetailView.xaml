@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.MenuDetailView"
+             vmb:ViewModelLocator.AutoWireViewModel="true">
+
+   
+    <ContentPage.Content>
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout HorizontalOptions="Center" Margin="0,0,0,0">
+                            <Label 
+                    Text="¡Bienvenido!" 
+                    FontSize="35" 
+                    TextColor="#333B8E" 
+                    FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Margin="0,0,0,0">
+                            <Label 
+                    Text="{Binding NombreUsuario}" 
+                    HorizontalOptions="CenterAndExpand" 
+                    FontSize="25" 
+                    TextColor="#0F75BC" 
+                    FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" Margin="30,0,0,5">
+                            <Label 
+                    Text="Plan Contratado" 
+                    FontSize="Medium" 
+                    TextColor="#333B8E" 
+                    FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <Frame Grid.Row="3" CornerRadius="8" Padding="10,10,0,10" Margin="30,0,30,0" BackgroundColor="#333B8E">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Margin="0,0,0,10">
+                                    <Label 
+                            Text="{Binding PlanContratado}"
+                            TextColor="White"
+                            FontAttributes="Bold" 
+                            FontSize="Medium"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="1" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                            Text="{Binding DocumentosFaltantes}" 
+                            TextColor="White"
+                            FontAttributes="Bold" 
+                            FontSize="Large" />
+                                </StackLayout>
+
+                                <ProgressBar VerticalOptions="Center" Grid.Row="2" Progress="{Binding Porcentaje}" ProgressColor="White"/>
+
+                                <StackLayout Grid.Row="3" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                            Text="{Binding DocumentosContratados}" 
+                            TextColor="White" 
+                            FontSize="Medium"/>
+                                </StackLayout>
+
+                            </Grid>
+                        </Frame>
+
+                        <StackLayout Grid.Row="4" Margin="30,0,0,5">
+                            <Label 
+                    Text="Estado de Documentos" 
+                    FontSize="Medium" 
+                    TextColor="#333B8E" 
+                    FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <Frame Grid.Row="5" CornerRadius="8" Padding="10,10,0,10" Margin="30,0,30,60" BackgroundColor="#0F75BC">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Margin="0,0,0,10">
+                                    <Label 
+                            Text="Facturas" 
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="Medium"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="1" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                            Text="{Binding FacturaAU}" 
+                            TextColor="White"
+                            FontAttributes="Bold" 
+                            FontSize="Large" />
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="2" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                            Text="Generados"
+                            TextColor="White" 
+                            FontAttributes="Bold" 
+                            FontSize="Medium"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                            Text="{Binding FacturaAN}"
+                            TextColor="White" 
+                            FontAttributes="Bold"
+                            FontSize="Large"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                            Text="Anulados" 
+                            TextColor="White"
+                            FontAttributes="Bold" 
+                            FontSize="Medium"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="1" Grid.Column="2" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                            Text="{Binding FacturaER}"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="Large"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="2" Grid.Column="2" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                            Text="Erróneos"
+                            TextColor="White" 
+                            FontAttributes="Bold" 
+                            FontSize="Medium"/>
+                                </StackLayout>
+
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" HorizontalOptions="End">
+                    <Frame Grid.Row="6" BackgroundColor="#0F75BC" Padding="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Text="&#xf002;" 
+                            FontFamily="{StaticResource FontAwesomeSolid}" 
+                            FontSize="40" 
+                            BackgroundColor="#0F75BC" 
+                            Command="{Binding MostrarConsultaComprobanteCommand}"/>
+
+                            <Button Grid.Column="1" 
+                            Text="&#xe3af;" 
+                            FontFamily="{StaticResource FontAwesomeSolid}" 
+                            FontSize="40" 
+                            BackgroundColor="#0F75BC"/>
+
+                            <Button Grid.Column="2" 
+                            Text="&#xf055;" 
+                            FontFamily="{StaticResource FontAwesomeSolid}" 
+                            FontSize="40" 
+                            BackgroundColor="#0F75BC"
+                            Command="{Binding MostrarFacturaCommand}"/>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+
+            
+
+            <StackLayout IsVisible="{Binding IsVisible}" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                     AbsoluteLayout.LayoutFlags="PositionProportional"
+                     BackgroundColor="Gray" 
+                     Opacity="0.8">
+                <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="CenterAndExpand"
+                               Color="#0F75BC"
+                               HeightRequest="80"
+                               WidthRequest="80"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

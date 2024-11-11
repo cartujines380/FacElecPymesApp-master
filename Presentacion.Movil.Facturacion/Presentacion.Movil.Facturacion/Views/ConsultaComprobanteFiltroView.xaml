@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:corcav="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.ConsultaComprobanteFiltroView"
+             vmb:ViewModelLocator.AutoWireViewModel="true"
+             Title="Consulta de Comprobante"
+             BackgroundColor="White">
+
+    <Grid>
+        <ScrollView>
+            <Grid Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout>
+                    <Label Text="Empresa" TextColor="#333B8E" FontSize="Medium" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Text="{Binding Empresa.RazonSocial, Mode=TwoWay}" 
+                            CornerRadius="8" 
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#0F75BC" />
+
+                        <StackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Button Text="&#xf002;" 
+                            FontFamily="{StaticResource FontAwesomeSolid}"
+                            TextColor="#0F75BC" 
+                            BorderColor="#0F75BC"
+                            BorderWidth="1.5" 
+                            CornerRadius="8"
+                            FontSize="Large" 
+                            BackgroundColor="White" 
+                            WidthRequest="55"
+                            HorizontalOptions="End"
+                            Command="{Binding MostrarModalEmpresaCommand}"/>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2">
+                    <Label Text="Tipo"
+                       TextColor="#333B8E"
+                       FontSize="Medium" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox Color="#0F75BC"
+                                  VerticalOptions="Center"
+                                  IsChecked="{Binding IsCheckedTodos, Mode=TwoWay}">
+                                <corcav:Interaction.Behaviors>
+                                    <corcav:BehaviorCollection>
+                                        <corcav:EventToCommand EventName="CheckedChanged" Command="{Binding Path=ActivarCheckCommand}" CommandParameter="Todo"/>
+                                    </corcav:BehaviorCollection>
+                                </corcav:Interaction.Behaviors>
+                            </CheckBox>
+                            <Label Text="Todos"
+                               TextColor="Black" 
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Column="1">
+                            <CheckBox Color="#0F75BC"
+                                  IsChecked="{Binding CheckFactura, Mode=TwoWay}"
+                                  VerticalOptions="Center"/>
+                            <Label Text="Factura" 
+                               TextColor="Black" 
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="1">
+                            <CheckBox Color="#0F75BC"
+                                  IsChecked="{Binding CheckFacturaExportacion, Mode=TwoWay}"
+                                  VerticalOptions="Center"/>
+                            <Label Text="Factura Exportación"
+                               TextColor="Black"
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                            <CheckBox Color="#0F75BC"
+                                  IsChecked="{Binding CheckFacturaReembolso, Mode=TwoWay}"
+                                  VerticalOptions="Center"/>
+                            <Label Text="Factura Reembolso"
+                               TextColor="Black"
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="2">
+                            <CheckBox Color="#0F75BC"
+                                  IsChecked="{Binding CheckFacturaTransportista,Mode=TwoWay}"
+                                  VerticalOptions="Center"/>
+                            <Label Text="Factura Transportista"
+                               TextColor="Black" 
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                            <CheckBox Color="#0F75BC"
+                                  IsChecked="{Binding CheckNotaCredito, Mode=TwoWay}"
+                                  VerticalOptions="Center"/>
+                            <Label Text="Notas de Crédito"
+                               TextColor="Black"
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="3">
+                            <CheckBox Color="#0F75BC"
+                                  IsChecked="{Binding CheckNotaDebito, Mode=TwoWay}"
+                                  VerticalOptions="Center"/>
+                            <Label Text="Notas de Débito" 
+                               TextColor="Black"
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                            <CheckBox Color="#0F75BC" 
+                                  IsChecked="{Binding CheckGuiaRemision, Mode=TwoWay}"
+                                  VerticalOptions="Center"/>
+                            <Label Text="Guías de Remisión"
+                               TextColor="Black"
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="4">
+                            <CheckBox Color="#0F75BC" 
+                                  IsChecked="{Binding CheckLiquidacionCompra, Mode=TwoWay}"
+                                  VerticalOptions="Center"/>
+                            <Label Text="Liquidación de Compra"
+                               TextColor="Black" 
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+                            <CheckBox  Color="#0F75BC" 
+                                   IsChecked="{Binding CheckComprobanteRetencion, Mode=TwoWay}"
+                                   VerticalOptions="Center"/>
+                            <Label Text="Comprobantes de Retención" 
+                               TextColor="Black" 
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="4">
+                    <Label Text="Fecha" 
+                       TextColor="#333B8E" 
+                       FontSize="Medium" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout>
+                            <DatePicker Date="{Binding FechaInicio, Mode=TwoWay}">
+                                <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                            </DatePicker>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1">
+                            <DatePicker Date="{Binding FechaFin, Mode=TwoWay}">
+                                <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                            </DatePicker>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="6">
+                    <Label Text="Estado" TextColor="#333B8E" FontSize="Medium" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="7">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout>
+                            <Button Text="Todos" 
+                                x:Name="btnTodos"
+                                CornerRadius="8"
+                                HeightRequest="40" 
+                                BackgroundColor="{Binding BackgroundColorTodos, Mode=TwoWay}" 
+                                TextColor="{Binding TextColorTodos, Mode=TwoWay}"
+                                BorderColor="{Binding BorderColorTodos, Mode=TwoWay}"
+                                BorderWidth="1"
+                                TextTransform="None"
+                                Command="{Binding ActivarBtnEstadoComprobanteCommand}"
+                                CommandParameter="btnTodos"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1">
+                            <Button Text="Autorizados"
+                                x:Name="btnAutorizados"
+                                ClassId="btnAutorizadosClassId"
+                                CornerRadius="8" 
+                                HeightRequest="40"
+                                BackgroundColor="{Binding BackgroundColorAutorizados, Mode=TwoWay}" 
+                                TextColor="{Binding TextColorAutorizados, Mode=TwoWay}"
+                                BorderColor="{Binding BorderColorAutorizados, Mode=TwoWay}"
+                                BorderWidth="1"
+                                TextTransform="None"
+                                Command="{Binding ActivarBtnEstadoComprobanteCommand}"
+                                CommandParameter="btnAutorizados"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="2">
+                            <Button Text="No Autorizados" 
+                                x:Name="btnNoAutorizados"
+                                CornerRadius="8"
+                                HeightRequest="40"
+                                BackgroundColor="{Binding BackgroundColorNoAutorizados, Mode=TwoWay}" 
+                                TextColor="{Binding TextColorNoAutorizados, Mode=TwoWay}"
+                                BorderColor="{Binding BorderColorNoAutorizados, Mode=TwoWay}"
+                                BorderWidth="1"
+                                TextTransform="None"
+                                Command="{Binding ActivarBtnEstadoComprobanteCommand}"
+                                CommandParameter="btnNoAutorizados"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
+                            <Button Text="Pre Autorizados"
+                                x:Name="btnPreAutorizados"
+                                CornerRadius="8" 
+                                HeightRequest="40" 
+                                BackgroundColor="{Binding BackgroundColorPreAutorizados, Mode=TwoWay}" 
+                                TextColor="{Binding TextColorPreAutorizados, Mode=TwoWay}"
+                                BorderColor="{Binding BorderColorPreAutorizados, Mode=TwoWay}"
+                                BorderWidth="1" 
+                                TextTransform="None"
+                                Command="{Binding ActivarBtnEstadoComprobanteCommand}"
+                                CommandParameter="btnPreAutorizados"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Grid.Column="2">
+                            <Button Text="Anulados"
+                                x:Name="btnAnulados"
+                                CornerRadius="8" 
+                                HeightRequest="40" 
+                                BackgroundColor="{Binding BackgroundColorAnulados, Mode=TwoWay}" 
+                                TextColor="{Binding TextColorAnulados, Mode=TwoWay}"
+                                BorderColor="{Binding BorderColorAnulados, Mode=TwoWay}"
+                                BorderWidth="1" 
+                                TextTransform="None"
+                                Command="{Binding ActivarBtnEstadoComprobanteCommand}"
+                                CommandParameter="btnAnulados"/>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="8">
+                    <Label Text="Número de Comprobante"
+                       TextColor="#333B8E" 
+                       FontSize="Medium" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="9">
+                    <Entry Text="{Binding NumComprobante, Mode=TwoWay}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="10">
+                    <Label Text="Identificación Cliente" 
+                       TextColor="#333B8E" 
+                       FontSize="Medium" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="11">
+                    <Entry Text="{Binding IdentificacionCliente, Mode=TwoWay}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="12">
+                    <Label Text="Código Error" 
+                       TextColor="#333B8E"
+                       FontSize="Medium" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="13">
+                    <Entry Text="{Binding CodigoError, Mode=TwoWay}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="14">
+                    <Button Text="Consultar"
+                        CornerRadius="10"
+                        BackgroundColor="#333B8E" 
+                        HorizontalOptions="CenterAndExpand" 
+                        TextTransform="None"
+                        FontSize="Medium"
+                        Command="{Binding ConsultarComprobantesCommand}"/>
+                </StackLayout>
+
+                
+            </Grid>
+        </ScrollView>
+
+        <StackLayout IsVisible="{Binding IsVisible}" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                     AbsoluteLayout.LayoutFlags="PositionProportional"
+                     BackgroundColor="Gray" 
+                     Opacity="0.8">
+            <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="CenterAndExpand"
+                               Color="#0F75BC"
+                               HeightRequest="80"
+                               WidthRequest="80"/>
+        </StackLayout>
+    </Grid>
+   
+
+    
+</ContentPage>

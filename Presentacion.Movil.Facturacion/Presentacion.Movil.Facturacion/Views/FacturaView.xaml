@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage BackgroundColor="#0F75BC" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:custom="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Controls"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.FacturaView"
+             vmb:ViewModelLocator.AutoWireViewModel="true"
+             Title="Factura">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Enviar"
+                     Command="{Binding GuardarFacturaCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <ScrollView x:Name="scroller"
+                Orientation="Vertical">
+
+            <StackLayout>
+                <Grid RowSpacing="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <!--0-->
+                        <RowDefinition Height="40"/>
+                        <!--1-->
+                        <RowDefinition Height="50"/>
+                        <!--2-->
+                        <RowDefinition Height="*"/>
+                        <!--3-->
+                        <RowDefinition Height="50"/>
+                        <!--4-->
+                        <RowDefinition Height="40"/>
+                        <!--5-->
+                        <RowDefinition Height="40"/>
+                        <!--6-->
+                        <RowDefinition Height="50"/>
+                        <!--7-->
+                        <RowDefinition Height="40"/>
+                        <!--8-->
+                        <RowDefinition Height="40"/>
+                        <!--9-->
+                        <RowDefinition Height="40"/>
+                        <!--10-->
+                        <RowDefinition Height="50"/>
+                        <!--11-->
+                        <RowDefinition Height="100"/>
+                        <!--12-->
+                        <RowDefinition Height="100"/>
+                        <!--13-->
+                        <RowDefinition Height="50"/>
+                        <!--14-->
+                        <RowDefinition Height="*"/>
+                        <!--15-->
+                        <RowDefinition Height="40"/>
+                        <!--16-->
+                        <RowDefinition Height="50"/>
+                        <!--17-->
+                        <RowDefinition Height="90"/>
+                        <!--18-->
+                        <RowDefinition Height="50"/>
+                        <!--19-->
+                        <RowDefinition Height="40"/>
+                        <!--20-->
+                        <RowDefinition Height="40"/>
+                        <!--21-->
+
+                    </Grid.RowDefinitions>
+
+                    <!--Tipo Factura-->
+                    <BoxView Grid.Row="0" Color="#EAF1F5" />
+                    <Label Margin="30,15,10,10" Text="Tipo de Factura" FontSize="Medium" TextColor="#333B8E" Grid.Row="0"/>
+
+                    <Grid Grid.Row="1" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,10,10" Text="{Binding Descripcion, Mode=TwoWay}" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                            <Button 
+                                Margin="0,-3,-18,0"
+                                BackgroundColor="Transparent" 
+                                Text="&#xf04b;" 
+                                FontFamily="{StaticResource FontAwesomeSolid}" 
+                                FontSize="Title" 
+                                TextColor="#0F75BC"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"
+                                Command="{Binding MostrarModalTipoFacturaCommand}"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <!--Empresa-->
+                    <BoxView Grid.Row="2" BackgroundColor="#EAF1F5"/>
+                    <Label Margin="30,15,10,10" Text="Empresa" FontSize="Medium" TextColor="#333B8E" Grid.Row="2" />
+
+                    <Grid Grid.Row="3" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="70"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,0,0" Text="{Binding Empresa.RazonSocial, Mode=TwoWay}" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <Button 
+                                Grid.Row="5"
+                                Margin="0,-2,-18,0"
+                                BackgroundColor="Transparent" 
+                                Text="&#xf04b;" 
+                                FontFamily="{StaticResource FontAwesomeSolid}" 
+                                FontSize="Title" 
+                                TextColor="#0F75BC"
+                                HorizontalOptions="End"
+                                Command="{Binding MostrarModalEmpresaCommand}"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <!--Información Cliente-->
+                    <BoxView Grid.Row="4" BackgroundColor="#EAF1F5" />
+                    <Label Margin="30,15,10,10" Text="Información Cliente" FontSize="Medium" TextColor="#333B8E" Grid.Row="4" />
+
+                    <Grid Grid.Row="5" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,0,0" Text="{Binding Cliente.RazonSocial}" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <Button 
+                                Grid.Row="5"
+                                Margin="0,-2,-18,0"
+                                BackgroundColor="Transparent" 
+                                Text="&#xf04b;" 
+                                FontFamily="{StaticResource FontAwesomeSolid}" 
+                                FontSize="Title" 
+                                TextColor="#0F75BC"
+                                HorizontalOptions="End"
+                                Command="{Binding MostrarModalClienteCommand}"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="6" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,10,10" Text="Número ID" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <Label Margin="30,10,10,10" Text="{Binding Cliente.Identificacion}" TextColor="Black"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <!--Información Factura-->
+                    <BoxView Grid.Row="7" BackgroundColor="#EAF1F5" />
+                    <Label Margin="30,15,10,10" Text="Información Factura" FontSize="Medium" TextColor="#333B8E" Grid.Row="7"/>
+
+                    <Grid Grid.Row="8" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,10,10" Text="Factura #" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand">
+                            <Label Margin="0,10,0,0" Text="{Binding NumeroFactura}" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2" HorizontalOptions="EndAndExpand">
+                            <Button 
+                                Margin="0,-3,-18,0"
+                                BackgroundColor="Transparent" 
+                                Text="&#xf013;" 
+                                FontFamily="{StaticResource FontAwesomeSolid}" 
+                                FontSize="Title" 
+                                TextColor="#0F75BC"
+                                HorizontalOptions="End"
+                                Command="{Binding MostrarModalNumeroFacturaCommand}"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="9" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,10,10" Text="Fecha" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" HorizontalOptions="StartAndExpand">
+                            <DatePicker Date="{Binding FechaEmision, Mode=TwoWay}">
+                                <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                            </DatePicker>
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="10" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,10,10" Text="Guia de Remisión" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" HorizontalOptions="StartAndExpand">
+                            <Entry Placeholder="Ingresar" WidthRequest="200" Text="{Binding GuiaRemision, Mode=TwoWay}"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <!--Detalle-->
+                    <Frame Grid.Row="11" BackgroundColor="#EAF1F5" Padding="30,15,15,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout>
+                                <Label Text="Detalle" FontSize="Medium" TextColor="#333B8E"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" HorizontalOptions="End" WidthRequest="50">
+                                <Button 
+                                    Margin="0,-15,0,0"
+                                    BackgroundColor="Transparent" 
+                                    Text="&#xf055;" 
+                                    FontFamily="{StaticResource FontAwesomeSolid}" 
+                                    FontSize="Title" 
+                                    TextColor="#0F75BC"
+                                    Command="{Binding MostrarModalDetalleCommand}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="2" HorizontalOptions="End" WidthRequest="50">
+                                <Button 
+                                    Margin="0,-15,0,0"
+                                    BackgroundColor="Transparent" 
+                                    Text="&#xf1f8;" 
+                                    FontFamily="{StaticResource FontAwesomeSolid}" 
+                                    FontSize="Title" 
+                                    TextColor="#0F75BC"
+                                    Command="{Binding EliminarDetalleCommand}"/>
+                            </StackLayout>
+
+                        </Grid>
+                    </Frame>
+
+                    <Frame Grid.Row="12" BackgroundColor="White">
+                        <StackLayout Padding="5,-15,-5,-10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <ListView ItemsSource="{Binding DetalleInfo, Mode=TwoWay}"
+                                      SelectedItem="{Binding DetalleSeleccionado}"
+                                      HasUnevenRows="True"
+                                      x:Name="list1">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <custom:CustomViewCell SelectedItemBackgroundColor="#EAF1F5">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <StackLayout Padding="5">
+                                                        <Label Text="{Binding ProductoCodigo}" FontSize="Small" TextColor="Black"/>
+                                                    </StackLayout>
+                                                    <StackLayout Padding="5" Grid.Column="1">
+                                                        <Label Text="{Binding InformacionDetalle}" FontSize="Small" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </custom:CustomViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Grid Grid.Row="13" BackgroundColor="White">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Margin="30,3,0,0" Text="Subtotal IVA 12%" TextColor="Black" HorizontalOptions="End"/>
+                        <Label Grid.Row="1" Margin="30,0,0,0" Text="IVA 12%" TextColor="Black" HorizontalOptions="End"/>
+                        <Label Grid.Row="2" Margin="30,0,0,0">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Mostrar Detalles"
+                                TextColor="#0F75BC"
+                                TextDecorations="Underline" FontAttributes="Bold,Italic">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding MostrarDetalleCalculoCommand}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Grid.Row="3" Margin="30,0,0,0" Text="Valor Total" TextColor="Black" FontAttributes="Bold" HorizontalOptions="End"/>
+
+                        <Label Grid.Column="1" Margin="30,3,0,0" Text="$" TextColor="Black" HorizontalOptions="End"/>
+                        <Label Grid.Row="1" Grid.Column="1" Margin="30,3,0,0" Text="$" TextColor="Black" HorizontalOptions="End"/>
+                        <Label Grid.Row="3" Grid.Column="1" Margin="30,3,0,0" Text="$" TextColor="Black" HorizontalOptions="End"/>
+
+
+                        <Label Grid.Column="2" Margin="30,3,0,0" Text="{Binding SubtotalDocePorciento, Mode=TwoWay}" TextColor="Black"/>
+                        <Label Grid.Row="1" Grid.Column="2" Margin="30,0,0,0" Text="{Binding IvaCalculado, Mode=TwoWay}" TextColor="Black"/>
+                        <Label Grid.Row="3" Grid.Column="2" Margin="30,0,0,0" Text="{Binding ValorTotal, Mode=TwoWay}" TextColor="Black" FontAttributes="Bold"/>
+
+                    </Grid>
+
+                    <!--Pago-->
+                    <BoxView Grid.Row="14" Color="#EAF1F5" />
+                    <Label Margin="30,15,10,10" Text="Pago" FontSize="Medium" TextColor="#333B8E" Grid.Row="14"/>
+
+                    <Grid Grid.Row="15" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="70"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,0,0" Text="{Binding FormaPago.MetodoPago, Mode=TwoWay}" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <Button 
+                                Grid.Row="5"
+                                Margin="0,-3,-18,0"
+                                BackgroundColor="Transparent" 
+                                Text="&#xf04b;" 
+                                FontFamily="{StaticResource FontAwesomeSolid}" 
+                                FontSize="Title" 
+                                TextColor="#0F75BC"
+                                HorizontalOptions="End"
+                                Command="{Binding MostrarModalFormaPagoCommand}"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="16" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,10,10" Text="Monto" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,0,0" Grid.Row="18" Text="{Binding FormaPago.Monto, Mode=TwoWay}" TextColor="Black"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <!--Información Adicional-->
+                    <Frame Grid.Row="17" BackgroundColor="#EAF1F5" Padding="30,15,15,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout>
+                                <Label Text="Información Adicional" FontSize="Medium" TextColor="#333B8E"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" HorizontalOptions="End" WidthRequest="50">
+                                <Button 
+                                    Margin="0,-15,0,0"
+                                    BackgroundColor="Transparent" 
+                                    Text="&#xf055;" 
+                                    FontFamily="{StaticResource FontAwesomeSolid}" 
+                                    FontSize="Title" 
+                                    TextColor="#0F75BC"
+                                    HorizontalOptions="End"
+                                    Command="{Binding MostrarModalInformacionAdicionalCommand}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="2" HorizontalOptions="End" WidthRequest="50">
+                                <Button 
+                                    Margin="0,-15,0,0"
+                                    BackgroundColor="Transparent" 
+                                    Text="&#xf1f8;" 
+                                    FontFamily="{StaticResource FontAwesomeSolid}" 
+                                    FontSize="Title" 
+                                    TextColor="#0F75BC"
+                                    HorizontalOptions="End"
+                                    Command="{Binding EliminarInformacionAdicionalCommand}"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Grid.Row="18" BackgroundColor="White">
+                        <StackLayout Padding="5,-15,-5,-10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <ListView ItemsSource="{Binding InfoAdicional, Mode=TwoWay}"
+                                      SelectedItem="{Binding InfoAdicionalSeleccionado}"
+                                      HasUnevenRows="True"
+                                      x:Name="list2">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <custom:CustomViewCell SelectedItemBackgroundColor="#EAF1F5">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <StackLayout Padding="0,5,30,0">
+                                                        <Label Text="{Binding Codigo}" FontSize="Small" TextColor="Black"/>
+                                                    </StackLayout>
+                                                    <StackLayout Padding="5" Grid.Column="1" HorizontalOptions="StartAndExpand">
+                                                        <Label Text="{Binding Valor}" FontSize="Small" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </custom:CustomViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Complementario -->
+                    <BoxView Grid.Row="19" BackgroundColor="#EAF1F5" />
+                    <Label Margin="30,15,10,10" Text="{Binding TituloComplemetario, Mode=TwoWay}" FontSize="Medium" TextColor="#333B8E" Grid.Row="19"/>
+
+                    <Grid Grid.Row="20" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,10,10" Text="{Binding ValorUno, Mode=TwoWay}" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" HorizontalOptions="End">
+                            <Label Margin="0,10,0,0" Text="{Binding ValorDos, Mode=TwoWay}" TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2" HorizontalOptions="End">
+                            <Button 
+                                    Margin="0,-3,-15,0"
+                                    BackgroundColor="Transparent" 
+                                    Text="{Binding IconoComplementario, Mode=TwoWay}" 
+                                    FontFamily="{StaticResource FontAwesomeSolid}" 
+                                    FontSize="Title" 
+                                    TextColor="#0F75BC"
+                                    HorizontalOptions="End"
+                                    Command="{Binding MostrarModalComplementarioCommnad}"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="21" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label Margin="30,10,10,10" Text="{Binding ValorTres, Mode=TwoWay}" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" HorizontalOptions="Start">
+                            <Label Margin="12,10,0,0" Text="{Binding ValorCuatro, Mode=TwoWay}" TextColor="Black"/>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+
+        </ScrollView>
+
+        <StackLayout IsVisible="{Binding IsVisible}" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                     AbsoluteLayout.LayoutFlags="PositionProportional"
+                     BackgroundColor="Gray" 
+                     Opacity="0.8">
+            <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="CenterAndExpand"
+                               Color="#0F75BC"
+                               HeightRequest="80"
+                               WidthRequest="80"/>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
+    

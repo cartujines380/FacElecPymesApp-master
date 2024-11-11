@@ -1,0 +1,15 @@
+﻿@model ErrorViewModel
+
+<div class="fondoError w-100 h-100 px-0">
+
+    @*<a href="@Url.Action("Login", "Account")">Volver al inicio</a>*@
+
+    @{
+        // Obtener el valor actual de returnUrl (si existe)
+        string returnUrl = "xamarincallbackError";
+    }
+
+    <a href="@Url.Action("Login", "Account", new { returnUrl })">Volver al inicio</a>
+
+</div>
+

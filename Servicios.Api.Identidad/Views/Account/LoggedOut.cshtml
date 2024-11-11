@@ -1,0 +1,20 @@
+﻿@model Sipecom.FactElec.Pymes.Servicios.Api.Identidad.Models.Account.LoggedOutViewModel
+
+
+@{ ViewData["signed-out"] = true;
+
+    if (Model.PostLogoutRedirectUri != null)
+    {
+        <div>
+            <a class="PostLogoutRedirectUri" href="@Model.PostLogoutRedirectUri"></a> <span></span>.
+        </div>
+    } 
+}
+
+@section scripts
+{
+    @if (Model.AutomaticRedirectAfterSignOut)
+    {
+        <script src="~/js/signout-redirect.js"></script>
+    }
+}

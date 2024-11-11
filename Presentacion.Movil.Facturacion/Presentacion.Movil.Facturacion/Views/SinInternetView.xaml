@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.SinInternetView"
+             BackgroundImageSource="SinInternet.png"
+             NavigationPage.HasNavigationBar="false"
+             vmb:ViewModelLocator.AutoWireViewModel="true">
+
+    <StackLayout  HorizontalOptions="Center" VerticalOptions="End" Orientation="Horizontal">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="3">
+                <Button 
+                Text="Intentar de nuevo"
+                BackgroundColor="#333B8E"
+                TextTransform="None"
+                CornerRadius="8"
+                Command="{Binding VolverIniciarSesionCommand}"/>
+            </StackLayout>
+        </Grid>
+       
+
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion" xmlns:custom="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Controls"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.ModalNumeroFacturaView"
+             vmb:ViewModelLocator.AutoWireViewModel="true"
+             BackgroundColor="Transparent">
+    <ContentPage.Content>
+        <Grid>
+            <Grid Margin="0,300,0,0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Frame BackgroundColor="#0F75BC" CornerRadius="8" BorderColor="#0F75BC">
+                    <Grid Grid.Row="0" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0">
+                            <Button Padding="0" Margin="0" Text="Cancelar" HeightRequest="20"
+                                BackgroundColor="#0F75BC" HorizontalOptions="Start" 
+                                TextColor="#E0E0E0" TextTransform="None" CornerRadius="8"
+                                Command="{Binding CerrarModalComannd}"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <Label 
+                               Text="Número Factura" TextColor="White" FontSize="Medium" 
+                               FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2">
+                            <Button Padding="0" Margin="0" Text="Guardar" HeightRequest="20"
+                                BackgroundColor="#0F75BC" HorizontalOptions="End" 
+                                TextColor="White" TextTransform="None" CornerRadius="8"
+                                Command="{Binding GuardarNumeroFacturaComannd}"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+
+                <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="8">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Establecimiento" TextColor="Black" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" Title="Seleccionar"
+                                ItemsSource="{Binding ListCodEstablecimiento}"
+                                ItemDisplayBinding="{Binding CodEstablecimiento}"
+                                SelectedItem="{Binding CodEstablecimientoSeleccionado}"
+                                SelectedIndex="{Binding IndexEstablecimiento}"/>
+
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Punto de Emisión" TextColor="Black" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" Title="Seleccionar" 
+                                ItemsSource="{Binding ListPuntoEmision}"
+                                ItemDisplayBinding="{Binding CodPuntoEmision}"
+                                SelectedItem="{Binding PuntoEmisionSeleccionado}"
+                                SelectedIndex="{Binding IndexPtoEmision}"/>
+
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+
+            </Grid>
+
+            <StackLayout IsVisible="{Binding IsVisible}" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                     AbsoluteLayout.LayoutFlags="PositionProportional"
+                     BackgroundColor="Gray" 
+                     Opacity="0.8">
+                <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="CenterAndExpand"
+                               Color="#0F75BC"
+                               HeightRequest="80"
+                               WidthRequest="80"/>
+            </StackLayout>
+
+        </Grid>
+       
+    </ContentPage.Content>
+</ContentPage>

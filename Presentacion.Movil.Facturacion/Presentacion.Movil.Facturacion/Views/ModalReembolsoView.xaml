@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.ModalReembolsoView"
+             vmb:ViewModelLocator.AutoWireViewModel="true"
+             BackgroundColor="Transparent">
+    <ContentPage.Content>
+        <Grid>
+            <Grid Margin="0,55,0,0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Frame BackgroundColor="#0F75BC" CornerRadius="8" BorderColor="#0F75BC">
+                    <Grid Grid.Row="0" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0">
+                            <Button Padding="0" Margin="0" Text="Cancelar" HeightRequest="20"
+                                BackgroundColor="#0F75BC" HorizontalOptions="Start" 
+                                TextColor="#E0E0E0" TextTransform="None" CornerRadius="8"
+                                Command="{Binding CerrarModalComannd}"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <Label Padding="0" Margin="0" VerticalOptions="CenterAndExpand" 
+                               Text="Reembolso" TextColor="White" FontSize="Medium" 
+                               FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2">
+                            <Button Padding="0" Margin="0" Text="Guardar" HeightRequest="20"
+                                BackgroundColor="#0F75BC" HorizontalOptions="End" 
+                                TextColor="White" TextTransform="None" CornerRadius="8"
+                                Command="{Binding GuardarReembolsoComannd}"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <ScrollView  Grid.Row="1">
+                    <Frame BackgroundColor="White" CornerRadius="8">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Margin="15,10,10,10" 
+                                   Text="Tipo ID"
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Picker Grid.Column="1" 
+                                    Title="Seleccionar"
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding TipoId}" 
+                                    ItemDisplayBinding="{Binding Detalle}" 
+                                    SelectedItem="{Binding TipoIdSeleccionado}" 
+                                    SelectedIndex="{Binding CodigoTipoId}"/>
+
+                            <Label Grid.Row="1" 
+                                   Margin="15,10,10,10" 
+                                   Text="Número ID" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="1"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Entry Grid.Row="1" 
+                                   Grid.Column="1" 
+                                   Margin="30,0,0,0"
+                                   WidthRequest="50" 
+                                   Text="{Binding NumeroId, Mode=TwoWay}"
+                                   Keyboard="Numeric" 
+                                   MaxLength="13"/>
+
+                            <Label Grid.Row="2" 
+                                   Grid.Column="0" 
+                                   Margin="15,10,10,10" 
+                                   Text="Razón Social" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Entry Grid.Row="2" 
+                                   Grid.Column="1" 
+                                   Margin="30,0,0,0" 
+                                   WidthRequest="50" 
+                                   Text="{Binding RazonSocial, Mode=TwoWay}"/>
+
+                            <Label Grid.Row="3" 
+                                   Grid.Column="0" 
+                                   Margin="15,10,10,10" 
+                                   Text="País" 
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="3"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Picker Grid.Row="3" 
+                                    Grid.Column="1" 
+                                    Title="Seleccionar" 
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding Pais}"
+                                    ItemDisplayBinding="{Binding Detalle}"
+                                    SelectedItem="{Binding PaisSeleccionado}"
+                                    SelectedIndex="{Binding CodigoPais}"/>
+
+                            <Label Grid.Row="4"
+                                   Grid.Column="0"
+                                   Margin="15,10,10,10" 
+                                   Text="Tipo de Proveedor" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="4"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Picker Grid.Row="4" 
+                                    Grid.Column="1" 
+                                    Title="Seleccionar"
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding TipoProveedorReembolso}"
+                                    ItemDisplayBinding="{Binding Detalle}"
+                                    SelectedItem="{Binding TipoProveedorReembolsoSeleccionado}"
+                                    SelectedIndex="{Binding CodigoTipoProveedorReembolso}"/>
+
+                            <Label Grid.Row="5" 
+                                   Grid.Column="0"
+                                   Margin="15,10,10,10" 
+                                   Text="Documento" 
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="5"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Picker Grid.Row="5" 
+                                    Grid.Column="1"
+                                    Title="Seleccionar"
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding TipoDocReembolso}"
+                                    ItemDisplayBinding="{Binding Detalle}"
+                                    SelectedItem="{Binding TipoDocReembolsoSeleccionado}"
+                                    SelectedIndex="{Binding CodigoTipoDocReembolso}"/>
+
+                            <Label Grid.Row="6" 
+                                   Grid.Column="0" 
+                                   Margin="15,10,10,10" 
+                                   Text="No. Autorización" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="6"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Entry Grid.Row="6" 
+                                   Grid.Column="1" 
+                                   Margin="30,0,0,0" 
+                                   Text="{Binding NoAutorizacion, Mode=TwoWay}"/>
+
+                            <Label Grid.Row="7"
+                                   Grid.Column="0" 
+                                   Margin="15,10,10,10" 
+                                   Text="No. Comprobante"
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="7"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Entry Grid.Row="7"
+                                   Grid.Column="1" 
+                                   Margin="30,0,0,0"
+                                   Text="{Binding NoComprobante, Mode=TwoWay}"/>
+
+                            <Label Grid.Row="8" 
+                                   Grid.Column="0" 
+                                   Margin="15,10,10,10" 
+                                   Text="Fecha de Emisión" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <StackLayout Grid.Row="8"
+                                         Grid.Column="1" 
+                                         Margin="30,0,0,0">
+                                <DatePicker Date="{Binding FechaEmisionReembolso, Mode=TwoWay}">
+                                    <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                                </DatePicker>
+                            </StackLayout>
+
+                            <Label Grid.Row="9"
+                                   Grid.Column="0"
+                                   Margin="15,10,10,10" 
+                                   Text="Cod. Impuesto" 
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="9"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Picker Grid.Row="9" 
+                                    Grid.Column="1"
+                                    Title="Seleccionar"
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding TipoImpuesto}"
+                                    ItemDisplayBinding="{Binding Detalle}"
+                                    SelectedItem="{Binding TipoImpuestoSeleccionado}"
+                                    SelectedIndex="{Binding CodigoTipoImpuesto}"/>
+
+                            <Label Grid.Row="10" 
+                                   Grid.Column="0" 
+                                   Margin="15,10,10,10" 
+                                   Text="Porcentaje" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="10"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Picker Grid.Row="10" 
+                                    Grid.Column="1" 
+                                    Title="Seleccionar" 
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding TipoPorcentaje}"
+                                    ItemDisplayBinding="{Binding Concepto}"
+                                    SelectedItem="{Binding TipoPorcentajeSeleccionado}"
+                                    SelectedIndex="{Binding CodigoTipoPorcentaje}"/>
+
+                            <Label Grid.Row="11" 
+                                   Grid.Column="0" 
+                                   Margin="15,10,10,10" 
+                                   Text="Base Imponible" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Entry Grid.Row="11" 
+                                   Grid.Column="1"  
+                                   Margin="30,0,0,0" 
+                                   Text="{Binding BaseImponible, Mode=TwoWay}"
+                                   Keyboard="Numeric"/>
+
+                            <Label Grid.Row="12"
+                                   Grid.Column="0" 
+                                   Margin="15,10,10,10" 
+                                   Text="Impuesto Reembolso" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="12" 
+                                   Grid.Column="1"
+                                   Margin="30,10,10,10" 
+                                   Text="{Binding ImpuestoReembolso, Mode=TwoWay}" 
+                                   FontAttributes="Bold" 
+                                   TextColor="Black"/>
+
+                            <Label Grid.Row="13" 
+                                   Grid.Column="0" 
+                                   Margin="15,10,10,10" 
+                                   Text="Base Imponible" 
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="13" 
+                                   Grid.Column="1" 
+                                   Margin="30,10,10,10" 
+                                   Text="{Binding BaseImponibleTotal, Mode=TwoWay}" 
+                                   FontAttributes="Bold" 
+                                   TextColor="Black"/>
+
+                        </Grid>
+                    </Frame>
+                </ScrollView>
+            </Grid>
+            
+            <StackLayout IsVisible="{Binding IsVisible}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="PositionProportional"
+                         BackgroundColor="Gray" 
+                         Opacity="0.8">
+                <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="#0F75BC"
+                                   HeightRequest="80"
+                                   WidthRequest="80"/>
+            </StackLayout>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

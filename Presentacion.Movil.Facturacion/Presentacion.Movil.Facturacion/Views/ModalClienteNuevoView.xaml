@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.ModalClienteNuevoView"
+             vmb:ViewModelLocator.AutoWireViewModel="true"
+             BackgroundColor="Transparent">
+    
+    <ContentPage.Content>
+        <Grid>
+            
+            <Grid Margin="0,200,0,0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Frame BackgroundColor="#0F75BC" CornerRadius="8" BorderColor="#0F75BC">
+
+                    <Grid Grid.Row="0" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0">
+                            <Button Padding="0" 
+                                    Margin="0" 
+                                    Text="Cancelar"
+                                    HeightRequest="20"
+                                    BackgroundColor="#0F75BC"
+                                    HorizontalOptions="Start" 
+                                    TextColor="#E0E0E0" 
+                                    TextTransform="None"
+                                    CornerRadius="8"
+                                    Command="{Binding CerrarModalComannd}"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <Label Padding="0" 
+                                   Margin="0" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   Text="Cliente" 
+                                   TextColor="White"
+                                   FontSize="Medium" 
+                                   FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2">
+                            <Button Padding="0" 
+                                    Margin="0" 
+                                    Text="Guardar" 
+                                    TextTransform="None"
+                                    HeightRequest="20"
+                                    BackgroundColor="#0F75BC"
+                                    HorizontalOptions="End" 
+                                    TextColor="White" 
+                                    CornerRadius="8"
+                                    Command="{Binding GuardarClienteComannd}"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <ScrollView  Grid.Row="1">
+                    <Frame BackgroundColor="White" CornerRadius="8">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Margin="15,10,10,10" 
+                                   Text="Tipo Entidad"
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Picker Grid.Column="1" 
+                                    Title="Seleccionar"
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding TipoEntidad}"
+                                    ItemDisplayBinding="{Binding Detalle}"
+                                    SelectedItem="{Binding TipoEntidadSeleccionado}"/>
+
+                            <Label Grid.Row="1" 
+                                   Margin="15,10,10,10" 
+                                   Text="Tipo de ID"
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="1"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Picker Grid.Row="1" 
+                                    Grid.Column="1" 
+                                    Title="Seleccionar"
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding TipoId}"
+                                    ItemDisplayBinding="{Binding Detalle}"
+                                    SelectedItem="{Binding TipoIdSeleccionado}"/>
+
+                            <Label Grid.Row="2" 
+                                   Margin="15,10,10,10" 
+                                   Text="Número ID" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="2"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Entry Grid.Row="2" 
+                                   Grid.Column="1" 
+                                   Margin="30,0,0,0" 
+                                   WidthRequest="50" 
+                                   Text="{Binding NumeroID, Mode=TwoWay}"/>
+
+                            <Label Grid.Row="3" 
+                                   Margin="15,10,10,10"
+                                   Text="Razón Social" 
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+                            <Label Margin="0,10,0,0"  
+                                   Grid.Row="3"
+                                   Grid.Column="1" 
+                                   Text="*"
+                                   TextColor="Red"/>
+                            <Entry Grid.Row="3" 
+                                   Grid.Column="1"
+                                   Margin="30,0,0,0"
+                                   WidthRequest="50" 
+                                   Text="{Binding RazonSocial, Mode=TwoWay}"/>
+
+                            <Label Grid.Row="4" 
+                                   Margin="15,10,10,10" 
+                                   Text="Email" 
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+                            <Entry Grid.Row="4" 
+                                   Grid.Column="1" 
+                                   Margin="30,0,0,0" 
+                                   WidthRequest="50" 
+                                   Text="{Binding Email, Mode=TwoWay}"/>
+
+                            <Label Grid.Row="5" 
+                                   Margin="15,10,10,10" 
+                                   Text="Teléfono" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Entry Grid.Row="5" 
+                                   Grid.Column="1" 
+                                   Margin="30,0,0,0" 
+                                   WidthRequest="50" 
+                                   Text="{Binding Telefono, Mode=TwoWay}"/>
+
+                            <Label Grid.Row="6" 
+                                   Margin="15,10,10,10" 
+                                   Text="Celular" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Entry Grid.Row="6" 
+                                   Grid.Column="1" 
+                                   Margin="30,0,0,0" 
+                                   WidthRequest="50" 
+                                   Text="{Binding Celular, Mode=TwoWay}"/>
+
+                            <Label Grid.Row="7" 
+                                   Margin="15,10,10,10" 
+                                   Text="Provincia"
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Picker Grid.Row="7" 
+                                    Grid.Column="1" 
+                                    Title="Seleccionar" 
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding Provincia}"
+                                    ItemDisplayBinding="{Binding Detalle}"
+                                    SelectedItem="{Binding ProvinciaSeleccionado}">
+                            </Picker>
+
+                            <Label Grid.Row="8" 
+                                   Margin="15,10,10,10" 
+                                   Text="Ciudad" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Picker Grid.Row="8" 
+                                    Grid.Column="1" 
+                                    Title="Seleccionar" 
+                                    Margin="30,0,0,0"
+                                    ItemsSource="{Binding Ciudad}"
+                                    ItemDisplayBinding="{Binding Detalle}"
+                                    SelectedItem="{Binding CiudadSeleccionado}"/>
+
+
+                            <Label Grid.Row="9" 
+                                   Margin="15,10,10,10" 
+                                   Text="Dirección" 
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+                            <Entry Grid.Row="9" 
+                                   Grid.Column="1" 
+                                   Margin="30,0,0,0" 
+                                   WidthRequest="50" 
+                                   Text="{Binding Direccion, Mode=TwoWay}"/>
+                        </Grid>
+                    </Frame>
+                </ScrollView>
+            
+            </Grid>
+
+            <StackLayout IsVisible="{Binding IsVisible}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="PositionProportional"
+                         BackgroundColor="Gray" 
+                         Opacity="0.8">
+                <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="#0F75BC"
+                                   HeightRequest="80"
+                                   WidthRequest="80"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

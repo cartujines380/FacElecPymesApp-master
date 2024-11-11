@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.ModalDetalleCalculoView"
+              vmb:ViewModelLocator.AutoWireViewModel="true"
+             BackgroundColor="Transparent">
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="0,200,0,0" RowSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row="0" BackgroundColor="#0F75BC"  CornerRadius="8" BorderColor="#0F75BC">
+                    <Label Margin="150,0,0,0" Text="Detalles" TextColor="White" FontSize="Medium" FontAttributes="Bold" />
+                </Frame>
+                <Button Text="Cancelar" 
+                    BackgroundColor="#0F75BC" HorizontalOptions="Start" 
+                    TextColor="#E0E0E0" TextTransform="None" CornerRadius="8"
+                    Command="{Binding CerrarModalComannd}"/>
+
+                <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="5">
+                    <Grid Margin="20,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Subtotal IVA 12%:" TextColor="Black" 
+                             VerticalOptions="End"/>
+                        <Label Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End"/>
+                        <Label Grid.Column="2" Text="{Binding Detalle.SubtotalDocePorciento, Mode=TwoWay}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Grid.Row="1" Text="Subtotal 0%:" TextColor="Black" 
+                             VerticalOptions="End"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End"/>
+                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding Detalle.SubtotalCeroPorciento, Mode=TwoWay}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Grid.Row="2" Text="Subtotal No. de objeto de IVA:" TextColor="Black" 
+                             VerticalOptions="End"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End"/>
+                        <Label Grid.Row="2" Grid.Column="2" Text="{Binding Detalle.SubtotalNoObjetoIva, Mode=TwoWay}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Grid.Row="3" Text="Subtotal Exento de IVA:" TextColor="Black" 
+                             VerticalOptions="End"/>
+                        <Label Grid.Row="3" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End"/>
+                        <Label Grid.Row="3" Grid.Column="2" Text="{Binding Detalle.SubtotalExentoIva, Mode=TwoWay}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Grid.Row="4" Text="Total Descuento:" TextColor="Black" 
+                             VerticalOptions="End"/>
+                        <Label Grid.Row="4" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End"/>
+                        <Label Grid.Row="4" Grid.Column="2" Text="0.00" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Grid.Row="5" Text="Subtotal sin impuestos:" TextColor="Black" 
+                             VerticalOptions="End"/>
+                        <Label Grid.Row="5" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End"/>
+                        <Label Grid.Row="5" Grid.Column="2" Text="{Binding Detalle.SubtotalSinImpuestos, Mode=TwoWay}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Grid.Row="6" Text="IVA 12%:" TextColor="Black" 
+                             VerticalOptions="End"/>
+                        <Label Grid.Row="6" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End"/>
+                        <Label Grid.Row="6" Grid.Column="2" Text="{Binding Detalle.IvaDocePorCiento, Mode=TwoWay}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Grid.Row="7" Text="ICE:" TextColor="Black" 
+                             VerticalOptions="End"/>
+                        <Label Grid.Row="7" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End"/>
+                        <Label Grid.Row="7" Grid.Column="2" Text="{Binding Detalle.Ice, Mode=TwoWay}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Grid.Row="8" Text="Flete Internacional:" TextColor="Black" 
+                             VerticalOptions="End" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+                        <Label Grid.Row="8" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+                        <Label Grid.Row="8" Grid.Column="2" Text="{Binding Detalle.FleteInternacional}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+
+                        <Label Grid.Row="9" Text="Seguro Internacional:" TextColor="Black" 
+                             VerticalOptions="End" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+                        <Label Grid.Row="9" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+                        <Label Grid.Row="9" Grid.Column="2" Text="{Binding Detalle.SeguroInternacional}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+
+                        <Label Grid.Row="10" Text="Gastos Aduaneros:" TextColor="Black" 
+                             VerticalOptions="End" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+                        <Label Grid.Row="10" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+                        <Label Grid.Row="10" Grid.Column="2" Text="{Binding Detalle.GastosAduaneros}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+
+                        <Label Grid.Row="11" Text="Gastos Transporte:" TextColor="Black" 
+                             VerticalOptions="End" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+                        <Label Grid.Row="11" Grid.Column="1" Text="$" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+                        <Label Grid.Row="11" Grid.Column="2" Text="{Binding Detalle.GastosTransporte}" TextColor="Black" 
+                             VerticalOptions="Center" HorizontalOptions="EndAndExpand" IsVisible="{Binding Detalle.EsExportacion, Mode=TwoWay}"/>
+
+
+                        <Label Grid.Row="12" Text="VALOR TOTAL:" TextColor="Black" 
+                           FontAttributes="Bold"  VerticalOptions="End"/>
+                        <Label Grid.Row="12" Grid.Column="1" Text="$" TextColor="Black" 
+                           FontAttributes="Bold"  VerticalOptions="Center" HorizontalOptions="End"/>
+                        <Label Grid.Row="12" Grid.Column="2" Text="{Binding Detalle.Total, Mode=TwoWay}" TextColor="Black" 
+                            FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
+     
+    </ContentPage.Content>
+</ContentPage>

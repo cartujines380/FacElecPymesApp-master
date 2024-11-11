@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.FacturaExitoView"
+             BackgroundImageSource="factura_exito.png"
+             NavigationPage.HasNavigationBar="false"
+             vmb:ViewModelLocator.AutoWireViewModel="true">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout>
+            <Image Source="invoicec_pymes.png" HeightRequest="100" WidthRequest="100"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" HorizontalOptions="Center" Padding="0,20,0,0">
+            <Label Text="Factura Generada Con Éxito" TextColor="#0F75BC" FontAttributes="Bold" FontSize="Medium"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="2" HorizontalOptions="Center">
+            <Label Text="{Binding NumeroFactura}" TextColor="#0F75BC" FontSize="Medium"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="3" HorizontalOptions="Center">
+            <Label x:Name="CheckListo" Text="&#xf058;"
+                   FontFamily="{StaticResource FontAwesomeSolid}"
+                   TextColor="#00E917" FontSize="50"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="4" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+            <Label Text="{Binding ValorFactura}" TextColor="Black" FontAttributes="Bold" FontSize="30"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="5" HorizontalOptions="Center" VerticalOptions="End">
+            <Label Text="{Binding Cliente}" TextColor="Black" FontSize="Body"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="6" HorizontalOptions="Center" >
+            <Label Text="{Binding Identificacion}" TextColor="Black" FontSize="Body"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="7" HorizontalOptions="Center" VerticalOptions="End" Orientation="Horizontal">
+
+            <Button 
+                Text="Volver al Inicio"
+                BackgroundColor="#333B8E"
+                TextTransform="None"
+                CornerRadius="8"
+                Command="{Binding VolverInicioCommand}"/>
+            
+        </StackLayout>
+
+    </Grid>
+    
+</ContentPage>

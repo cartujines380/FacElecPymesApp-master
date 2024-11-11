@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:custom="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Controls"
+             x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.ConsultaComprobanteView"
+             vmb:ViewModelLocator.AutoWireViewModel="true"
+             Title="Consulta de Comprobante">
+
+    <Grid>
+        <StackLayout>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Frame BackgroundColor="#E7F2F9" x:Name="Filtros" Padding="15,15,5,3">
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="*"/>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout>
+                            <Label Text="Empresa" TextColor="#0F75BC"/>
+                        </StackLayout>
+                        <StackLayout  Grid.Column="1" Orientation="Horizontal" >
+                            <Frame Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" >
+                                <Label Text="{Binding Empresa}" TextColor="White"/>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1">
+                            <Label Text="Tipo" TextColor="#0F75BC"/>
+                        </StackLayout>
+                        <ScrollView Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Frame Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" IsVisible="{Binding FrameCero}">
+                                    <Label Text="{Binding LabelCero}" TextColor="White"/>
+                                </Frame>
+                                <Frame Grid.Column="1" Padding="4" CornerRadius="5" BackgroundColor="#0F75BC"  IsVisible="{Binding FrameUno}">
+                                    <Label Text="{Binding LabelUno}" TextColor="White"/>
+                                </Frame>
+                                <Frame Grid.Column="2" Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" IsVisible="{Binding FrameDos}">
+                                    <Label Text="{Binding LabelDos}" TextColor="White"/>
+                                </Frame>
+                                <Frame Grid.Column="3" Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" IsVisible="{Binding FrameTres}">
+                                    <Label Text="{Binding LabelTres}" TextColor="White"/>
+                                </Frame>
+                                <Frame Grid.Column="4" Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" IsVisible="{Binding FrameCuatro}">
+                                    <Label Text="{Binding LabelCuatro}" TextColor="White"/>
+                                </Frame>
+                                <Frame Grid.Column="5" Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" IsVisible="{Binding FrameCinco}">
+                                    <Label Text="{Binding LabelCinco}" TextColor="White"/>
+                                </Frame>
+                                <Frame Grid.Column="6" Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" IsVisible="{Binding FrameSeis}">
+                                    <Label Text="{Binding LabelSeis}" TextColor="White"/>
+                                </Frame>
+                                <Frame Grid.Column="7" Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" IsVisible="{Binding FrameSiete}">
+                                    <Label Text="{Binding LabelSiete}" TextColor="White"/>
+                                </Frame>
+                                <Frame Grid.Column="8" Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" IsVisible="{Binding FrameOcho}">
+                                    <Label Text="{Binding LabelOcho}" TextColor="White"/>
+                                </Frame>
+                                <Frame Grid.Column="9" Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" IsVisible="{Binding FrameNueve}">
+                                    <Label Text="{Binding LabelNueve}" TextColor="White"/>
+                                </Frame>
+                            </Grid>
+
+                        </ScrollView>
+
+                        <StackLayout Grid.Row="2">
+                            <Label Text="Fecha" TextColor="#0F75BC"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2"  Grid.Column="1" Orientation="Horizontal">
+                            <Frame Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" >
+                                <Label Text="{Binding Fecha}" TextColor="White"/>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Grid.Row="3">
+                            <Label Text="Estado" TextColor="#0F75BC"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="3"  Grid.Column="1" Orientation="Horizontal">
+                            <Frame Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" >
+                                <Label Text="{Binding Estado}" TextColor="White"/>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Grid.Row="4" IsVisible="{Binding IsVisibleNumeroComprobante}">
+                            <Label Text="Número Comprobante" TextColor="#0F75BC"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="4"  Grid.Column="1" Orientation="Horizontal" IsVisible="{Binding IsVisibleNumeroComprobante}">
+                            <Frame Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" >
+                                <Label Text="{Binding NumeroComprobante}" TextColor="White"/>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Grid.Row="5" IsVisible="{Binding IsVisibleIdentificacionCliente}">
+                            <Label Text="Identificación Cliente" TextColor="#0F75BC"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="5"  Grid.Column="1" Orientation="Horizontal" IsVisible="{Binding IsVisibleIdentificacionCliente}">
+                            <Frame Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" >
+                                <Label Text="{Binding IdentificacionCliente}" TextColor="White"/>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Grid.Row="6" IsVisible="{Binding IsVisibleCodigoError}">
+                            <Label Text="Código Error" TextColor="#0F75BC"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="6" Grid.Column="1" Orientation="Horizontal" IsVisible="{Binding IsVisibleCodigoError}">
+                            <Frame Padding="4" CornerRadius="5" BackgroundColor="#0F75BC" >
+                                <Label Text="{Binding CodigoError}" TextColor="White"/>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+
+                </StackLayout>
+            </Frame>
+
+            <Grid Grid.Row="1" BackgroundColor="#E7F2F9" x:Name="ContenedorBtnFiltro" Padding="0" Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="5">
+                    <Button Text="Más Filtros" 
+                        CornerRadius="8" 
+                        BackgroundColor="#E7F2F9" 
+                        TextColor="#0F75BC"
+                        BorderColor="#0F75BC"
+                        BorderWidth="1.5"
+                        TextTransform="None"
+                        HeightRequest="30"
+                        Command="{Binding MostarMasFiltrosCommand}"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End" BackgroundColor="#E7F2F9">
+                    <Button Text="&#xf070;&#xf0b0;" x:Name="BtnFiltro"
+                            FontFamily="{StaticResource FontAwesomeSolid}" 
+                            BackgroundColor="#E7F2F9" 
+                            TextColor="#333B8E" 
+                            FontSize="Large"
+                            Clicked="Button_Clicked"/>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout Grid.Row="2" Padding="18,10,0,10" BackgroundColor="White">
+                <Label Text="Resultado" TextColor="#333B8E" FontAttributes="Bold" FontSize="Medium"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3">
+                <Frame Padding="10,0,10,0" IsVisible="{Binding IsVisibleFrameListComprobante}">
+                    <ListView x:Name="MyList" ItemsSource="{Binding InfoComprobante}" ItemAppearing="ListView_ItemAppearing" HasUnevenRows="True" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <custom:CustomViewCell SelectedItemBackgroundColor="#EAF1F5">
+
+                                    <Frame CornerRadius="10" BackgroundColor="White" HasShadow="True" Margin="10" Padding="10">
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackLayout>
+                                                <Label Text="{Binding TipoComprobante}" 
+                                           TextColor="#0F75BC"
+                                           FontSize="Small"/>
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="1">
+                                                <Label 
+                                            Text="{Binding NumeroComprobante}" 
+                                            TextColor="Black"
+                                            FontSize="Small" />
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="2">
+                                                <Label 
+                                            Text="Cliente/Proveedor"
+                                            TextColor="#0F75BC" 
+                                            FontAttributes="Bold" 
+                                            FontSize="Small"/>
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="3" >
+                                                <Label 
+                                            Text="{Binding Identificacion}"
+                                            TextColor="Black" 
+                                            FontSize="Small"/>
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="End">
+                                                <Label Text="{Binding Fecha}" TextColor="Black"/>
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="End" Grid.RowSpan="2">
+                                                <Label Text="{Binding Valor}" TextColor="#0F75BC" FontAttributes="Bold" FontSize="Title"/>
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="EndAndExpand" Grid.RowSpan="2">
+                                                <Button Text="&#xf019;" x:Name="BtnDescargarPDF"
+                                                    FontFamily="{StaticResource FontAwesomeSolid}" 
+                                                    BackgroundColor="Transparent" 
+                                                    TextColor="Black" 
+                                                    FontSize="Large"
+                                                    Margin="0,0,-4,0" Padding="0" WidthRequest="50"
+                                                    Command="{Binding Path=BindingContext.DescargarPDFCommand, Source={x:Reference MyList}}"
+                                                    CommandParameter="{Binding .}"/>
+
+                                                <Button Text="&#xf14d;" x:Name="BtnCompartirPDF"
+                                                    FontFamily="{StaticResource FontAwesomeSolid}" 
+                                                    BackgroundColor="Transparent" 
+                                                    TextColor="Black" 
+                                                    FontSize="Large"
+                                                    Margin="0,0,-15,0" Padding="-20" WidthRequest="50"
+                                                    Command="{Binding Path=BindingContext.CompartirPDFCommand, Source={x:Reference MyList}}"
+                                                    CommandParameter="{Binding .}"/>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </Frame>
+                                </custom:CustomViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+                <Frame Padding="10,10,10,10" CornerRadius="10" Margin="20" HasShadow="True" IsVisible="{Binding IsVisibleFrameNotResult}">
+                    <Label Text="No existen registros" HorizontalOptions="Center" TextColor="#333B8E" FontAttributes="Bold"/>
+                </Frame>
+            </StackLayout>
+
+        </Grid>
+    </StackLayout>
+        
+        <StackLayout IsVisible="{Binding IsVisible}" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                     AbsoluteLayout.LayoutFlags="PositionProportional"
+                     BackgroundColor="Gray" 
+                     Opacity="0.8">
+            <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="CenterAndExpand"
+                               Color="#0F75BC"
+                               HeightRequest="80"
+                               WidthRequest="80"/>
+        </StackLayout>
+
+    </Grid>
+
+</ContentPage>

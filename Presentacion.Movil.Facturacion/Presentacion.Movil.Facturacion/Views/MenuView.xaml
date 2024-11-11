@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views.MenuView"
+            xmlns:custom="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Controls"
+            xmlns:vmb="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.ViewModels.Base;assembly=Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion" xmlns:view="clr-namespace:Sipecom.FactElec.Pymes.Presentacion.Movil.Facturacion.Views"
+            NavigationPage.HasNavigationBar="false"
+            vmb:ViewModelLocator.AutoWireViewModel="true">
+
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Flyout">
+
+            <Grid BackgroundColor="White" Padding="0,5,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                <StackLayout Padding="0,0,0,20">
+                    <Image Source="invoicec_pymes.png" HeightRequest="75"/>
+                </StackLayout>
+    
+                <ListView Grid.Row="1" ItemsSource="{Binding MenuItems , Mode=TwoWay}"
+                      SelectedItem="{Binding SelectedMenuItem}" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                            <custom:CustomViewCell SelectedItemBackgroundColor="#EAF1F5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Margin="25,10,0,0" >
+                                            <Label  Text="{Binding Icono}" FontSize="Large" TextColor="#0F75BC" FontFamily="{StaticResource FontAwesomeSolid}"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="1" Margin="0,10,10,10" >
+                                            <Label Text="{Binding Opcion}" FontSize="Medium" TextColor="#0F75BC" />
+                                        </StackLayout>
+                                </Grid>
+                                </custom:CustomViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                </ListView>
+
+                    <Button Margin="0,0,0,0" VerticalOptions="End" Grid.Row="2" Text="Cerrar Sesión"
+                        Command="{Binding CerrarSesionCommand}" BackgroundColor="#0F75BC" TextTransform="None" FontSize="Medium"/>
+
+
+                </Grid>
+
+        </ContentPage>
+
+       
+
+    </FlyoutPage.Flyout>
+
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <view:MenuDetailView />
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+    
+    
+</FlyoutPage>
